@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Management Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e0f7fa;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+        }
+        .sidebar, .main-content, .leaderboard-section {
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .sidebar {
+            width: 20%;
+        }
+        .main-content {
+            width: 50%;
+            text-align: center;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #ffffff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .header a {
+            text-decoration: none;
+            color: #000;
+            margin: 0 10px;
+        }
+        .form-group {
+            margin: 10px 0;
+        }
+        .form-group input {
+            width: 80%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .form-group button {
+            padding: 10px 20px;
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .form-group button:hover {
+            background-color: #45a049;
+        }
+        .leaderboard-section {
+            width: 20%;
+            text-align: center;
+        }
+        .total-points, .leaderboard {
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        .total-points p {
+            font-size: 1.2em;
+            margin: 0 0 10px 0;
+        }
+        .total-points h1 {
+            font-size: 2.5em;
+            margin: 0;
+            color: #29b6f6;
+        }
+        .leaderboard p {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+        .leaderboard ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .leaderboard li {
+            margin: 10px 0;
+            font-size: 1.1em;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .leaderboard li .rank {
+            font-size: 1.5em;
+            margin-right: 10px;
+        }
+        .target-list {
+            list-style: none;
+            padding: 0;
+        }
+        .target-list li {
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #e3f2fd;
+            border: 1px solid #90caf9;
+            border-radius: 5px;
+        }
+        .new-task-button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #29b6f6;
+            color: #fff;
+            text-align: center;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .new-task-button:hover {
+            background-color: #0288d1;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">savify</div>
+        <div class="nav">
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Subscription</a>
+        </div>
+        <div class="actions">
+            <button>share</button>
+            <button>settings</button>
+        </div>
+    </div>
+    <div class="container">
+        <div class="sidebar">
+            <h3>Dashboard</h3>
+            <ul class="target-list">
+                <li>Target 1</li>
+                <li>Target 2</li>
+                <li>Target 3</li>
+                <li>Target 4</li>
+            </ul>
+            <button class="new-task-button">+ new task</button>
+        </div>
+        <div class="main-content">
+            <h3>Target 5</h3>
+            <div class="form-group">
+                <input type="text" placeholder="saving budget..">
+            </div>
+            <div class="form-group">
+                <input type="text" placeholder="Salary">
+            </div>
+            <div class="form-group">
+                <input type="text" placeholder="Reason">
+            </div>
+            <div class="form-group">
+                <input type="text" placeholder="Duration">
+            </div>
+            <div class="form-group">
+                <button>Add</button>
+            </div>
+        </div>
+        <aside class="leaderboard-section">
+            <div class="total-points">
+                <p>Total reward points</p>
+                <h1>11,548</h1>
+            </div>
+            <div class="leaderboard">
+                <p>Leader board</p>
+                <ul>
+                    <li><span class="rank">👑</span> msaty - 30,048</li>
+                    <li>fertay - 23,065</li>
+                    <li>kaser - 18,643</li>
+                    <li>masuri - 12,478</li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+</body>
+</html>
