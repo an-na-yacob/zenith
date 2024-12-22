@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Management Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e0f7fa;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+        }
+        .sidebar, .main-content, .leaderboard-section {
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .sidebar {
+            width: 20%;
+        }
+        .main-content {
+            width: 50%;
+            text-align: center;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #ffffff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .header a {
+            text-decoration: none;
+            color: #000;
+            margin: 0 10px;
+        }
+        .header .logo {
+            margin-left: 10%;
+            font-size: 50px;
+            font-weight: bold;
+            font-style: italic;
+        }
+        .form-group {
+            margin: 10px 0;
+        }
+        .form-group input {
+            width: 80%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .dashboard-button{
+            display: block;
+            width: 93%;
+            padding: 10px;
+            background-color: #747778;
+            color: #fff;
+            text-align: center;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            text-decoration: none;
+
+        }
+        .form-group button {
+            padding: 10px 20px;
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .form-group button:hover {
+            background-color: #45a049;
+        }
+        .leaderboard-section {
+            width: 20%;
+            text-align: center;
+        }
+        .total-points, .leaderboard {
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        .total-points p {
+            font-size: 1.2em;
+            margin: 0 0 10px 0;
+        }
+        .total-points h1 {
+            font-size: 2.5em;
+            margin: 0;
+            color: #29b6f6;
+        }
+        .leaderboard p {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+        .leaderboard ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .leaderboard li {
+            margin: 10px 0;
+            font-size: 1.1em;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .leaderboard li .rank {
+            font-size: 1.5em;
+            margin-right: 10px;
+        }
+        .target-list {
+            list-style: none;
+            padding: 0;
+        }
+        .target-list li {
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #e3f2fd;
+            border: 1px solid #90caf9;
+            border-radius: 5px;
+        }
+        .new-task-button {
+            display: block;
+            width: 50%;
+            padding: 10px;
+            background-color: #29b6f6;
+            color: #fff;
+            text-align: center;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .generate-task-button {
+            display: block;
+            width: 50%;
+            padding: 10px;
+            background-color: #29b6f6;
+            color: #fff;
+            text-align: center;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            margin-left: 10%;
+        }
+        .new-task-button:hover {
+            background-color: #0288d1;
+        }
+        .done-button { 
+            background-color: blue; 
+            color: white; 
+            border: none; 
+            padding: 10px 20px; 
+            border-radius: 5px; 
+            cursor: pointer; 
+            margin-top: 10px; 
+        } 
+        .done-button.done { 
+            background-color: green;
+        }
+        .achieved-target-link {
+        background-color: #0288d1;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 10px;
+        text-decoration: none;
+    }
+
+    .achieved-target-button:hover {
+        background-color: #0288d1;
+    }
+
+        
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">savify</div>
+        <div class="nav">
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Subscription</a>
+        </div>
+        <div class="actions">
+            <button>share</button>
+            <button>settings</button>
+        </div>
+    </div>
+    <div class="container">
+        <div class="sidebar">
+            <a href="{{ url_for('second') }}" class="dashboard-button">Dashboard</a>
+            
+            <button class="new-task-button">+ new task</button>
+        </div>
+        <div class="main-content"> 
+            <h3>Add a New Savings Target</h3> 
+            <form method="POST" action="/addtask"> 
+            <div class="form-group"> 
+            <input type="text" id="target" name="target" placeholder="Target" value="{{ target }}"> 
+        </div> 
+            <div class="form-group"> 
+                <input type="text" id="expenses" name="expenses" placeholder="Common Expenses" value="{{ expenses }}"> 
+        </div> 
+            <div class="form-group"> 
+            <input type="submit" value="Generate Task" class="generate-task-button"> </div> </form> 
+        {% if task %} 
+        <h2>Generated Task</h2> 
+        <p>{{ task }}</p> 
+        <button class="done-button" onclick="completeTask()">Done</button>
+        <a href="{{ url_for('lastpage') }}" class="achieved-target-link">Achieved Target</a>
+        {% endif %} 
+    </div>
+        <aside class="leaderboard-section">
+            <div class="total-points">
+                <p>Total reward points</p>
+                <h1>11,548</h1>
+            </div>
+            <div class="total-points">
+                <p>Total Savings</p>
+                <h1>$20.00</h1>
+            </div>
+            <div class="leaderboard">
+                <p><bold>Leader board</bold></p>
+                <ul>
+                    <li><span class="rank">👑</span> msaty - 30,048</li>
+                    <li>fertay - 23,065</li>
+                    <li>kaser - 18,643</li>
+                    <li>masuri - 12,478</li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+    <script>
+        // Initialize points and savings from localStorage or set default values
+        function initializeValues() {
+            let points = localStorage.getItem('rewardPoints');
+            let savings = localStorage.getItem('totalSavings');
+    
+            // Set default values if they do not exist in localStorage
+            if (points === null) {
+                points = '11548';
+                localStorage.setItem('rewardPoints', points);
+            }
+    
+            if (savings === null) {
+                savings = '20.00';
+                localStorage.setItem('totalSavings', savings);
+            }
+    
+            // Update the displayed values
+            document.querySelector('.total-points:nth-of-type(1) h1').textContent = parseInt(points).toLocaleString();
+            document.querySelector('.total-points:nth-of-type(2) h1').textContent = '$' + parseFloat(savings).toFixed(2);
+        }
+    
+        function completeTask() {
+            var doneButton = document.querySelector('.done-button');
+            var rewardPointsElement = document.querySelector('.total-points:nth-of-type(1) h1');
+            var totalSavingsElement = document.querySelector('.total-points:nth-of-type(2) h1');
+    
+            // Mark the task as completed
+            doneButton.classList.add('done');
+            doneButton.textContent = 'Completed';
+    
+            // Update the reward points and total savings
+            var currentPoints = parseInt(rewardPointsElement.textContent.replace(',', ''));
+            var updatedPoints = currentPoints + 20;
+            rewardPointsElement.textContent = updatedPoints.toLocaleString();
+            localStorage.setItem('rewardPoints', updatedPoints); // Save to localStorage
+    
+            var currentSavings = parseFloat(totalSavingsElement.textContent.replace('$', ''));
+            var updatedSavings = currentSavings + 150;
+            totalSavingsElement.textContent = '$' + updatedSavings.toFixed(2);
+            localStorage.setItem('totalSavings', updatedSavings.toFixed(2)); // Save to localStorage
+        }
+    
+        function resetSavings() {
+            var totalSavingsElement = document.querySelector('.total-points:nth-of-type(2) h1');
+            
+            // Reset the total savings to $20
+            totalSavingsElement.textContent = '$20.00';
+            localStorage.setItem('totalSavings', '20.00'); // Save to localStorage
+        }
+    
+        // Run this function on page load to initialize values
+        document.addEventListener('DOMContentLoaded', initializeValues);
+    
+        // Add event listener to "Achieved Target" button
+        document.addEventListener('DOMContentLoaded', function () {
+            var achievedTargetButton = document.querySelector('.achieved-target-link');
+            if (achievedTargetButton) {
+                achievedTargetButton.addEventListener('click', resetSavings);
+            }
+        });
+    </script>
+    
+    
+    
+    </body>
+</html>

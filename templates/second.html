@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            height: 100vh;
+            background-color: #f0f4f8;
+        }
+        .sidebar {
+            width: 200px;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+        }
+        .sidebar img {
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+        }
+        .sidebar h2 {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+        .sidebar p {
+            font-size: 14px;
+            color: #666;
+        }
+        .sidebar a {
+            display: block;
+            padding: 10px 0;
+            color: #333;
+            text-decoration: none;
+            font-size: 16px;
+        }
+        .sidebar a:hover {
+            background-color: #f0f4f8;
+        }
+        .main-content {
+            flex: 1;
+            padding: 20px;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .header h1 {
+            font-size: 24px;
+            margin: 0;
+        }
+        .header button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .header button:hover {
+            background-color: #0056b3;
+        }
+        .cards {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px 0;
+        }
+        .card {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            width: 30%;
+            text-align: center;
+        }
+        .card h3 {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+        .card p {
+            font-size: 24px;
+            margin: 0;
+        }
+        .image-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        .image-container img {
+            max-width: 50%;
+            height: auto;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <img src="static\images\second2.png" alt="Profile Picture">
+        <h2>Ibrahim Saddi</h2>
+        <p>ibrahimsaddi@gmail.com</p>
+        <a href="#">Dashboard</a>
+        <a href="#">Reports</a>
+        <a href="{{ url_for('addtask') }}">Tasks</a>
+        <a href="#">Alert</a>
+        <a href="#">Help</a>
+        <a href="#">Settings</a>
+    </div>
+    <div class="main-content">
+        <div class="header">
+            <h1>Good morning, Ibrahim Saddi</h1>
+            <button>Export</button>
+        </div>
+        <div class="cards">
+            <div class="card">
+                <h3>Total Balance</h3>
+                <p>$30,192.98</p>
+            </div>
+            <div class="card">
+                <h3>Income</h3>
+                <p>$40,000.00</p>
+            </div>
+            <div class="card">
+                <h3>Expense</h3>
+                <p>$9,807.02</p>
+            </div>
+        </div>
+        <div class="image-container">
+            <img src="static\images\second.jpg" alt="Financial Picture">
+        </div>
+    </div>
+</body>
+</html>
+
