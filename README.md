@@ -19,6 +19,6 @@ After setting up, you can start the Flask app by running:
 ```bash
 python savifyapp.py
 ```
-The app will run locally on ```bash http://127.0.0.1:5000/```
+The app will run locally on ```bash http://127.0.0.1:5000/```<br>
 2. Access the app
 Open your web browser and visit the local URL ```bash (http://127.0.0.1:5000/)``` to interact with the app. 
