@@ -57,3 +57,6 @@ Open your web browser and visit the local URL ```bash (http://127.0.0.1:5000/)``
 **Savify** is designed to empower users with the tools and motivation they need to build sustainable saving habits, turning financial goals into exciting, achievable milestones!
 
 ## Working Demo:
+```bash 
+https://www.loom.com/share/0d45bd3151234947af12a18245f5f50b?sid=e5c5700e-fede-4cf0-9783-408330d3ad89
+ ```
